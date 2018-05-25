@@ -50,7 +50,8 @@ EXAMPLE: retrieve all melee maps that do not contain "flat" in their name and
 ```python
 for m in selectMap(name="flat", melee=True, excludeName=True, closestMatch=False):
     print(m, m.attrs)
-''''''
+```
+```
 <MapRecord "Simple128"> ['path', 'melee']
 <MapRecord "Simple64"> ['path', 'melee']
 <MapRecord "Simple96"> ['path', 'melee']
@@ -60,6 +61,7 @@ EXAMPLE: select the 2017 map that best matches the name 'f'.
 > NOTE: map `Frost` is always selected; no randomness with current map set.
 ```python
 print(selectMap(name="f", year=2017, closestMatch=True))
-''''''
+```
+```
 <MapRecord "Frost">
 ```

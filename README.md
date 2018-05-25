@@ -85,12 +85,12 @@ revised to properly select maps.
 
 > EXAMPLE: given criteria `Foo=True` results in an exception because none of the
 > maps exist in a subfolder named `foo` (ignoring folder's case).
-> `sc2gameMapRepo.constants.InvalidMapSelection: could not find any matching maps given criteria: {'foo': True}`
+`sc2gameMapRepo.constants.InvalidMapSelection: could not find any matching maps given criteria: {'foo': True}`
 
 > EXAMPLE: given criteria `year=2017` and `Combat=True`, an exception is raised
 > because none of the maps exist in a subfolder structure with both of these
 > attributes in the path.
-> `sc2gameMapRepo.constants.InvalidMapSelection: could not find any matching maps given criteria: {'year': 2017, 'Combat': True}`
+`sc2gameMapRepo.constants.InvalidMapSelection: could not find any matching maps given criteria: {'year': 2017, 'Combat': True}`
 
 ---
 ## Further Development and Augmentation
@@ -111,15 +111,11 @@ The subfolder name is interpreted in one of two ways according to its format:
 > attribute name `maxplayers` with an `int` value `6`.
 
 > EXAMPLE: all .SC2Map files within this subfolder are `Ladder` maps. 
-```
-/Maps/Economy/
-```
+`/Maps/Economy/`
 
 > EXAMPLE: all .SC2Map files within this subfolder are official `Ladder` maps
 > which are specifically 1v1 maps released in 2018. 
-```
-/Maps/Ladder/mode1v1/year2018
-```
+`/Maps/Ladder/mode1v1/year2018`
 
 #### Add New Features to the Code?
 
