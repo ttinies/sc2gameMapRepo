@@ -1,7 +1,7 @@
 
 # Recommended Usage -- Python
 
-This implementation supports both python2 and python3.
+`sc2gameMapRepo` supports both python2 and python3.
 
 Indexing the maps occurs at run-time only the first time a map selection
 request occurs, following the principle of [lazy evaluation](https://en.wikipedia.org/wiki/Lazy_evaluation).  The
