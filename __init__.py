@@ -1,65 +1,35 @@
 """
-Copyright 2018 Versentiedge LLC All Rights Reserved.
+MIT License
 
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
+Copyright (c) 2018 Versentiedge LLC All Rights Reserved.
 
-     http://www.apache.org/licenses/LICENSE-2.0
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS-IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 """
 
 from __future__ import absolute_import
 from __future__ import division       # python 2/3 compatibility
 from __future__ import print_function # python 2/3 compatibility
 
-from six import iteritems # python 2/3 compatibility
+# NOTE: Reference python sc2scenarios --help for usage descriptions
+from .functions import selectMap
+from .mapRecord import standardizeMapName
+from .          import constants
 
-import random
-import re
-
-from .index import getIndex
-from . import defs
-
-from sc2common import constants as c
-
-
-################################################################################
-def selectMap(name=None, **args):
-    allMaps = getIndex()
-    matches = []
-    ############################################################################
-    def matchRecordAttrs(mapobj, attrs):
-        """attempt to match attributes"""
-        for k,v in iteritems(attrs):
-            try:    val = getattr(record, k)
-            except AttributeError:       # k isn't an attr of record
-                if not v:   return True  # if k doesn't exist in mapobj but was required, no match
-                else:       continue     # otherwise ignore attributes that aren't defined for the given map record
-            if val == v:    return True  # if any criteria matches, it's considered a match
-        return False                     # no criteria matched at all
-    ############################################################################
-    for record in allMaps: # attempt to match attributes
-        if not args or matchRecordAttrs(record, args):
-            matches.append(record)
-    if not matches: raise c.InvalidMapSelection("could not find any matching maps given criteria: %s"%args)
-    if name: # if name is specified, consider only the best-matching names only
-        bestScr = 99999 # a big enough number to not be a valid file system path
-        regex = re.compile("^%s"%name, flags=re.IGNORECASE)
-        for m in list(matches):
-            if not re.search(regex, m.name): # map must contain specified phrase
-                matches.remove(m)
-                continue
-            score = len(m.name) # the map with the smallest map name means it has the largets matching character percentage
-            if score <= bestScr:    bestScr = score
-            else:                   matches.remove(m)
-    try:    return random.choice(matches) # pick any map at random that matches all criteria
-    except IndexError: # matches is empty still
-        raise c.InvalidMapSelection("requested map '%s', but could not locate "\
-            "it within %s or its subdirectories."%(name, defs.MAPS_FOLDER))
+__version__ = "0.0.1"
 

@@ -1,10 +1,21 @@
 
-from sc2common.commonUtilFuncs import standardizeMapName
+import os
 import re
 
 
 ################################################################################
+def standardizeMapName(mapName):
+    """pretty-fy the name for pysc2 map lookup"""
+    newName = os.path.basename(mapName)
+    newName = newName.split(".")[0]
+    newName = newName.split("(")[0]
+    newName = re.sub("[LTE]+$", "", newName)
+    return re.sub(' ', '', newName, flags=re.UNICODE)
+
+
+################################################################################
 class MapRecord(object):
+    EXCLUDED_ATTRS = ["name"]
     ############################################################################
     def __init__(self, name, path, attrs):
         self.name = standardizeMapName(name)
@@ -27,11 +38,11 @@ class MapRecord(object):
     def attrs(self):
         try:    return self._attrs
         except AttributeError: pass
-        self._attrs = [a for a in self.__dict__ if a not in ["name", "path"]]
+        self._attrs = [a for a in self.__dict__ if a not in MapRecord.EXCLUDED_ATTRS]
         return self._attrs
     ############################################################################
     def display(self):
         print(self)
         for a in self.attrs:
-            print("    %6s : %s"%(a, self.__dict__[a]))
+            print("    %8s : %s"%(a, self.__dict__[a]))
 
