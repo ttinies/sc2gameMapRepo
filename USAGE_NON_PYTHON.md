@@ -11,7 +11,8 @@ usage:  [-h] [--list] [--details] [--path] [--mapname MAPNAME] [--exclude]
         [--best] [--ladder LADDER] [--combat COMBAT] [--economy ECONOMY]
         [--scenario SCENARIO] [--misc MISC] [--test TEST] [--year YEAR]
         [--season {1,2,3,4}] [--mode {1v1,2v2,3v3,4v4}]
-''''''
+```
+```
 optional arguments:
   -h, --help            show this help message and exit
   --list                Display all known maps by category.
@@ -82,7 +83,8 @@ the attribute whereas other values positively assert matching.
 EXAMPLE: find the absolute path of all 2018, season2 ladder maps. 
 ```shell
 $ python sc2gameMapRepo --ladder=True --year=2018 --season=2 --path
-''''''
+```
+```
 <InstallPath>\sc2gameMapRepo\Maps\Ladder\mode1v1\year2018\Season2\16BitLE.SC2Map
 <InstallPath>\sc2gameMapRepo\Maps\Ladder\mode1v1\year2018\Season2\AcidPlantLE.SC2Map
 <InstallPath>\sc2gameMapRepo\Maps\Ladder\mode1v1\year2018\Season2\CatalystLE.SC2Map
@@ -96,7 +98,8 @@ EXAMPLE: find the names of all that contain `marine` in the name and are tagged
 in a `scenario` subfolder.
 ```shell
 $ python sc2gameMapRepo --mapname=marine --combat=True
-''''''
+```
+```
 Banshee2vsMarine8
 Banshee4vsMarine16
 Banshee4vsMarine16Medivac1
@@ -107,7 +110,8 @@ EXAMPLE: select the 'best' `season 1` map
 > NOTE: the map is selected at random so the result may vary.
 ```shell
 $ python sc2gameMapRepo --season=1 --best
-''''''
+```
+```
 Blackpink
 ```
 
@@ -116,7 +120,8 @@ EXAMPLE: show map attribute details for all maps with `acid` in their name.
 > distinguished them as belonging to both seasons 1 and 2.
 ```shell
 $ python sc2gameMapRepo --mapname=acid --details
-''''''
+```
+```
 <MapRecord "AcidPlant">
         path : <InstallPath>/sc2gameMapRepo/Maps/Ladder/mode1v1/year2018/Season1/AcidPlantLE.SC2Map
       ladder : True
