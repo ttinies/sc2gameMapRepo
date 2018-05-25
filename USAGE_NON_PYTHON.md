@@ -11,8 +11,7 @@ usage:  [-h] [--list] [--details] [--path] [--mapname MAPNAME] [--exclude]
         [--best] [--ladder LADDER] [--combat COMBAT] [--economy ECONOMY]
         [--scenario SCENARIO] [--misc MISC] [--test TEST] [--year YEAR]
         [--season {1,2,3,4}] [--mode {1v1,2v2,3v3,4v4}]
-```
-```
+
 optional arguments:
   -h, --help            show this help message and exit
   --list                Display all known maps by category.
