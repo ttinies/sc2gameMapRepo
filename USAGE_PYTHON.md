@@ -18,24 +18,18 @@ def selectMap(name=None, excludeName=False, closestMatch=True, **tags)
 ```
 
 1. map name matching criteria : _match the maps whose name follow the criteria_
-* `name` (default=None)
-> a text string used as a regex to match the map filename.
-* `excludeName` (default=False)
-> whether matching map names are included (False) or excluded (True).
-> only enforced if name is also specified
-* `closestMatch` (default=True)
-> force selection among the map pool that matches attribute criteria or by name.
+* `name` (default=`None`) _a text string used as a regex to match the map filename._
+* `excludeName` (default=`False`) _whether matching map names are included (False) or excluded (True).  Is only enforced if name is also specified_
+* `closestMatch` (default=`True`) _force selection among the map pool that matches attribute criteria or by name._
 
-**TIP** the value of `mapname` can be a python regular expression.
-
-**TIP** `closestMatch` has two potential behaviors.
-> 1. if mapname is specified, selection favors mapnames that more closely match
-> > the specified name (shortest name).
+> **TIP** the value of `mapname` can be a python regular expression.
+> 
+> **TIP** `closestMatch` has two potential behaviors.
+> 1. if mapname is specified, selection favors mapnames that more closely match the specified name (shortest name).
 > 2. if mapname is not specified, a map is selected at random.
 
 2. `tags` attribute criteria : _match the maps whose attributes follow the criteria_
-* any key:value pair as criteria
-> match criteria against map attributes.
+* any key:value pair as criteria _match criteria against map attributes._
 
 ### positive or negative assertion
 
@@ -56,18 +50,16 @@ EXAMPLE: retrieve all melee maps that do not contain "flat" in their name and
 ```python
 for m in selectMap(name="flat", melee=True, excludeName=True, closestMatch=False):
     print(m, m.attrs)
-```
-> *
+''''''
 <MapRecord "Simple128"> ['path', 'melee']
 <MapRecord "Simple64"> ['path', 'melee']
 <MapRecord "Simple96"> ['path', 'melee']
-*
+```
 
 EXAMPLE: select the 2017 map that best matches the name 'f'.
 > NOTE: map `Frost` is always selected; no randomness with current map set.
 ```python
 print(selectMap(name="f", year=2017, closestMatch=True))
-```
-> *
+''''''
 <MapRecord "Frost">
-*
+```

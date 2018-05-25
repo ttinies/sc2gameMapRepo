@@ -17,8 +17,8 @@ play (optionally specifying user-defined criteria), easily identify the .SC2Map
 file absolute path, identify automatically generated tags that describe the
 map(s) and identify any collection of maps using keywords to describe the map.
 
-The intent is to provide a minimal (*simple!*) interface to make it easier for
-new-commers to understand intended usage. This small project, independent of
+The intent is to provide a minimal (*simple!*) interface so that new-commers
+can easily use developed functionality. This small project, independent of
 other code, should prove more reliable to retrieve desired map information
 (*effective!*). By being simple and effective, hopefully this repository proves
 helpful to new and existing SC2 AI developers (*useful!*). 
@@ -32,10 +32,10 @@ helpful to new and existing SC2 AI developers (*useful!*).
 
 #### Functional Overview
 
-There is no index mapping for the files that needs to be maintained.  All of
-the .SC2Map files are located within the `Maps` subfolder or subsequent
-subfolders.  Each subsequent subfolder encodes an attribute that describes
-all subsequent .SC2Map files contained within it or its subfolders.
+All .SC2Map files are located within the `Maps` subfolder or subsequent
+subfolders. Each subsequent subfolder encodes an attribute that describes all
+subsequent .SC2Map files contained within it or its subfolders. Using this
+format, an index file that maps attribute tags to filenames is not needed.
 
 This repository does not prevent potential .SC2Map file redundancy.  Instead,
 this storage approach allows files to be _very easily_ added into the repo w/o
@@ -57,24 +57,24 @@ be optomized further for timely lookups.
 #### Dependencies
 
 This package is mostly self-contained with only one external package
-dependency: [six](https://pypi.org/project/six/) (to ensure python2 and python 3 compatibility)
+dependency: [six](https://pypi.org/project/six/) (python2 and python 3 compatibility)
 
 #### Instructions
 
 1. Install any(?) version of [python](https://www.python.org/downloads/) and use [pip](https://pypi.org/project/pip/) to install [six](https://pypi.org/project/six/).
-2. git clone https://github.com/ttinies/sc2gameMapRepo
-> > NOTE: to ensure the destination is visible by your project, consider the following strategies:
-> > * install this package within your own project
-> > * add `<destination>` to the environment variable: `PYTHONPATH`
-> > * `.../<Python folder>/Lib/site-packages/sc2gameMapRepo/` (similar to what a pip install would do)
+2. git clone https://github.com/ttinies/sc2gameMapRepo (or fork and clone your repo)
+> NOTE: to ensure the destination is visible by your project, consider the following strategies:
+> * install this package within your own project
+> * add `<destination>` to the environment variable: `PYTHONPATH`
+> * `.../<Python folder>/Lib/site-packages/sc2gameMapRepo/` (similar to what a pip install would do)
 
-**TIP** adding sc2gameMapRepo to the system path using the %PYTHONPATH% variable
+**TIP**: adding sc2gameMapRepo to the system path using the %PYTHONPATH% variable
 can help python locate your sc2gameMapRepo installation.
 
 ---
 ## Recommended Usage -- selectMap parameters
 
-Refer to [python](https://github.com/ttinies/sc2gameMapRepo/blob/master/USAGE_PUTHON.md)-specific or [non python](https://github.com/ttinies/sc2gameMapRepo/blob/master/USAGE_NON_PYTHON.md)-specific usage documents.
+Refer to [python](/blob/master/USAGE_PUTHON.md)-specific or [non python](/blob/master/USAGE_NON_PYTHON.md)-specific usage documents.
 
 ---
 ## Troubleshooting
@@ -84,23 +84,16 @@ In the event that a map request issued by no matching map is found, an
 revised to properly select maps.
 
 > EXAMPLE: given criteria `Foo=True` results in an exception because none of the
-> > maps exist in a subfolder named `foo` (ignoring folder's case).
-> *
-sc2gameMapRepo.constants.InvalidMapSelection: could not find any matching maps given criteria: {'foo': True}
-*
+> maps exist in a subfolder named `foo` (ignoring folder's case).
+> `sc2gameMapRepo.constants.InvalidMapSelection: could not find any matching maps given criteria: {'foo': True}`
 
 > EXAMPLE: given criteria `year=2017` and `Combat=True`, an exception is raised
-> > because none of the maps exist in a subfolder structure with both of these
-> > attributes in the path.
-> *
-sc2gameMapRepo.constants.InvalidMapSelection: could not find any matching maps given criteria: {'year': 2017, 'Combat': True}
-*
+> because none of the maps exist in a subfolder structure with both of these
+> attributes in the path.
+> `sc2gameMapRepo.constants.InvalidMapSelection: could not find any matching maps given criteria: {'year': 2017, 'Combat': True}`
 
 ---
 ## Further Development and Augmentation
-
-The preferred method to update this repository is through standard git fork and
-pull operations.
 
 #### Add New Maps?
 
@@ -112,11 +105,10 @@ attribute identification.
 
 The subfolder name is interpreted in one of two ways according to its format:
 1. non-numeric chars mean the attribute is interpreted with a `bool` value.
-2. if a numeric char is included, that char signals the beginning of an `int`
-> or `string` typed value.
+2. if a numeric char is included, that char signals the beginning of an `int` or `string` typed value.
 
 > EXAMPLE: a hypothetical folder, `MaxPlayers6`, would be interpreted with an
-> > > attribute name `maxplayers` with an `int` value `6`.
+> attribute name `maxplayers` with an `int` value `6`.
 
 > EXAMPLE: all .SC2Map files within this subfolder are `Ladder` maps. 
 ```
@@ -124,7 +116,7 @@ The subfolder name is interpreted in one of two ways according to its format:
 ```
 
 > EXAMPLE: all .SC2Map files within this subfolder are official `Ladder` maps
-> > > which are specifically 1v1 maps released in 2018. 
+> which are specifically 1v1 maps released in 2018. 
 ```
 /Maps/Ladder/mode1v1/year2018
 ```
@@ -141,7 +133,7 @@ welcome.
 
 * Automated testing of package functionality.
 * Additional language-specific interfaces beyond Python.
-* package management support: [PyPi](https://pypi.org/) / [pip](https://pypi.org/project/pip/) and [conda](https://www.anaconda.com/what-is-anaconda/)
+* package management support: [PyPi](https://pypi.org/) / [pip](https://pypi.org/project/pip/) and [conda](https://www.anaconda.com/what-is-anaconda/).
 * Accomodations for unforseen/unhandled incompatibility issues.
 
 ---
@@ -154,6 +146,6 @@ too for completeness.
 * DeepMind [PYSC2](https://github.com/deepmind/pysc2/blob/master/README.md)
 * SoyGema  [pySC2_minigames](https://github.com/SoyGema/pySC2_minigames/blob/master/README.md)
 * SoyGema  [Startcraft_pysc2_minigames](https://github.com/SoyGema/Startcraft_pysc2_minigames)
-* SoyGema  [minigames_pysc2](https://github.com/SoyGema/minigames_pysc2}
+* SoyGema  [minigames_pysc2](https://github.com/SoyGema/minigames_pysc2)
 * 4rChon   [sc2-ai-mini-games](https://github.com/4rChon/sc2-ai-mini-games/blob/master/README.md)
 
