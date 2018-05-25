@@ -117,7 +117,8 @@ The subfolder name is interpreted in one of two ways according to its format:
 `/Maps/Economy/`
 
 > EXAMPLE: all .SC2Map files within this subfolder are official `Ladder` maps
-> which are specifically 1v1 maps released in 2018. 
+> which are 1v1 maps released in 2018. 
+
 `/Maps/Ladder/mode1v1/year2018`
 
 #### Add New Features to the Code?
