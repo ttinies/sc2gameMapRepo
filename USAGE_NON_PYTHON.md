@@ -7,13 +7,11 @@ installation by invoking the --help option on the command line.
 
 ```shell
 $ python -m sc2gameMapRepo --help
-```
-> *
 usage:  [-h] [--list] [--details] [--path] [--mapname MAPNAME] [--exclude]
         [--best] [--ladder LADDER] [--combat COMBAT] [--economy ECONOMY]
         [--scenario SCENARIO] [--misc MISC] [--test TEST] [--year YEAR]
         [--season {1,2,3,4}] [--mode {1v1,2v2,3v3,4v4}]
-
+''''''
 optional arguments:
   -h, --help            show this help message and exit
   --list                Display all known maps by category.
@@ -33,7 +31,7 @@ optional arguments:
   --season {1,2,3,4}    the specific ladder season within a calendar year.
   --mode {1v1,2v2,3v3,4v4}
                         the official ladder category to play.
-*
+```
 
 Without any other language interface implemented, the best way to retrieve map
 information is to issue a system command and parse STDOUT for the queried info.
@@ -52,11 +50,10 @@ Reference `--help` for details on paramater usage.
 * `--exclude`
 * `--best`
 
-**TIP** the value of `--mapname` can be a python regular expression.
-
-**TIP** `--best` has two potential behaviors.
-> 1. if mapname is specified, selection favors mapnames that more closely match
-> > the specified name (shortest name).
+> **TIP** the value of `--mapname` can be a python regular expression.
+> 
+> **TIP** `--best` has two potential behaviors.
+> 1. if mapname is specified, selection favors mapnames that more closely match the specified name (shortest name).
 > 2. if mapname is not specified, a map is selected at random.
 
 3. map attribute criteria : _match the maps whose attributes follow the criteria_
@@ -71,7 +68,7 @@ Reference `--help` for details on paramater usage.
 **IMPORTANT**: non-python users are restricted to these attributes.  `__main__.py`
 must be updated if additional attributes are desired.
 
-### positive or negative assertion
+### Positive or Negative Assertion
 
 Each attribute be positively asserted (match the specified value) or negatively
 asserted (match all values that do not match the specified value).  When
@@ -80,13 +77,12 @@ the attribute whereas other values positively assert matching.
 
 ### Examples
 
-##### Linux or Windows
+##### Linux and/or Windows
 
 EXAMPLE: find the absolute path of all 2018, season2 ladder maps. 
 ```shell
 $ python sc2gameMapRepo --ladder=True --year=2018 --season=2 --path
-```
-> *
+''''''
 <InstallPath>\sc2gameMapRepo\Maps\Ladder\mode1v1\year2018\Season2\16BitLE.SC2Map
 <InstallPath>\sc2gameMapRepo\Maps\Ladder\mode1v1\year2018\Season2\AcidPlantLE.SC2Map
 <InstallPath>\sc2gameMapRepo\Maps\Ladder\mode1v1\year2018\Season2\CatalystLE.SC2Map
@@ -94,37 +90,33 @@ $ python sc2gameMapRepo --ladder=True --year=2018 --season=2 --path
 <InstallPath>\sc2gameMapRepo\Maps\Ladder\mode1v1\year2018\Season2\DreamcatcherLE.SC2Map
 <InstallPath>\sc2gameMapRepo\Maps\Ladder\mode1v1\year2018\Season2\LostAndFoundLE.SC2Map
 <InstallPath>\sc2gameMapRepo\Maps\Ladder\mode1v1\year2018\Season2\RedshiftLE.SC2Map
-*
+```
 
 EXAMPLE: find the names of all that contain `marine` in the name and are tagged
 in a `scenario` subfolder.
 ```shell
 $ python sc2gameMapRepo --mapname=marine --combat=True
-```
-> *
+''''''
 Banshee2vsMarine8
 Banshee4vsMarine16
 Banshee4vsMarine16Medivac1
-*
+```
 
 EXAMPLE: select the 'best' `season 1` map
-> NOTE: the matching map pool includes ladders maps from season 1 of both 2017
-> > and 2018.
+> NOTE: the matching map pool includes ladders maps from season 1 of both 2017 and 2018.
 > NOTE: the map is selected at random so the result may vary.
 ```shell
 $ python sc2gameMapRepo --season=1 --best
-```
-> *
+''''''
 Blackpink
-*
+```
 
 EXAMPLE: show map attribute details for all maps with `acid` in their name.
 > NOTE: notice in this case that the same map was listed twice, but correctly
-> > distinguished them as belonging to both seasons 1 and 2.
+> distinguished them as belonging to both seasons 1 and 2.
 ```shell
 $ python sc2gameMapRepo --mapname=acid --details
-```
-> *
+''''''
 <MapRecord "AcidPlant">
         path : <InstallPath>/sc2gameMapRepo/Maps/Ladder/mode1v1/year2018/Season1/AcidPlantLE.SC2Map
       ladder : True
@@ -138,7 +130,7 @@ $ python sc2gameMapRepo --mapname=acid --details
         year : 2018
       season : 2
 Found 2 maps that match given criteria.
-*
+```
 
 ##### MacOS / OSX
 
