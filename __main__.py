@@ -39,7 +39,6 @@ if __name__=='__main__': # mini/unit test
     options = parser.parse_args()
     params = {k:v for k,v in options._get_kwargs()\
         if v!=None and k not in c.EXCLUDED_KEYS}
-    print(params)
     if options.list or options.details:
         specifiedMaps = filterMapNames(
             options.mapname,
