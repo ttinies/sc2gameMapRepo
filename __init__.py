@@ -24,7 +24,6 @@ from __future__ import print_function # python 2/3 compatibility
 # NOTE: Reference python sc2scenarios --help for usage descriptions
 from .functions import selectMap
 from .mapRecord import standardizeMapName
-from .          import constants
 
-__version__ = "0.0.1"
+__version__ = "0.0.2"
 
