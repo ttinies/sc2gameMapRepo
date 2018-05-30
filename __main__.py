@@ -23,7 +23,7 @@ if __name__=='__main__': # mini/unit test
     # function operation parameters
     parser.add_argument("--mapname"    , default=""                       , help="the name of the specific map to load.")
     parser.add_argument("--exclude"    ,               action="store_true", help="exclude maps with names specified by --mapname.")
-    parser.add_argument("--best"       ,               action="store_true", help="match maps that are closer with --mapname")    
+    parser.add_argument("--best"       ,               action="store_true", help="match maps that are closer with --mapname")
     # record match criteria
     parser.add_argument("--ladder"     , default=None, type=bool          , help="ladder must be selected (True) or ignored.")
     parser.add_argument("--combat"     , default=None, type=bool          , help="combat maps must be selected (True) or ignored.")
@@ -32,10 +32,10 @@ if __name__=='__main__': # mini/unit test
     parser.add_argument("--misc"       , default=None, type=bool          , help="misc maps must be seleced (True) or ignored.")
     parser.add_argument("--test"       , default=None, type=bool          , help="test maps must be seleced (True) or ignored.")
     parser.add_argument("--year"       , default=None, type=int           , help="the calendar year the ladder season occurred.")
-    parser.add_argument("--season"     , default=None, type=int, 
-                                                       choices=[1, 2, 3, 4],help="the specific ladder season within a calendar year.")
-    parser.add_argument("--mode"       , default=None, choices=["1v1", "2v2", "3v3", "4v4"],
-                                                                            help="the official ladder category to play.")
+    parser.add_argument("--season"     , default=None, type=int, choices=[1, 2, 3, 4]
+                                                                          , help="the specific ladder season within a calendar year.")
+    parser.add_argument("--mode"       , default=None, choices=["1v1", "2v2", "3v3", "4v4"]
+                                                                          , help="the official ladder category to play.")
     options = parser.parse_args()
     params = {k:v for k,v in options._get_kwargs()\
         if v!=None and k not in c.EXCLUDED_KEYS}
