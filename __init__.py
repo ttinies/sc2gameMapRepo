@@ -25,5 +25,5 @@ from __future__ import print_function # python 2/3 compatibility
 from .functions import selectMap
 from .mapRecord import standardizeMapName
 
-__version__ = "0.0.2"
+__version__ = "0.1.0"
 
