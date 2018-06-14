@@ -17,12 +17,12 @@ DESCRIPTION = 'Manage Starcraft2 (SC2) maps for use by developers creating bots,
 URL = 'https://github.com/ttinies/sc2gameMapRepo'
 EMAIL = 'chageme'
 AUTHOR = 'change me'
-# REQUIRES_PYTHON = '>=3.6.0'
+REQUIRES_PYTHON = '>=3.6.0'
 VERSION = None
 
 # What packages are required for this module to be executed?
 REQUIRED = [
-    'sxi'
+    'six'
 ]
 
 # The rest you shouldn't have to touch too much :)
@@ -79,7 +79,7 @@ class UploadCommand(Command):
         self.status('Pushing git tags…')
         os.system('git tag v{0}'.format(about['__version__']))
         os.system('git push --tags')
-        
+
         sys.exit()
 
 
@@ -95,12 +95,9 @@ setup(
     python_requires=REQUIRES_PYTHON,
     url=URL,
     packages=find_packages(exclude=('tests',)),
-    # If your package is a single module, use this instead of 'packages':
-    # py_modules=['mypackage'],
-
-    # entry_points={
-    #     'console_scripts': ['mycli=mymodule:cli'],
-    # },
+     entry_points={
+         'console_scripts': ['sc2maptool=sc2maptool.cli:cli'],
+     },
     install_requires=REQUIRED,
     include_package_data=True,
     license='Apache License 2.0',
