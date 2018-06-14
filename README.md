@@ -1,3 +1,6 @@
+[![Coverage Status](https://coveralls.io/repos/github/mikemhenry/sc2gameMapRepo/badge.svg?branch=tests)](https://coveralls.io/github/mikemhenry/sc2gameMapRepo?branch=tests)
+
+[![Build Status](https://travis-ci.org/mikemhenry/sc2gameMapRepo.svg?branch=master)](https://travis-ci.org/mikemhenry/sc2gameMapRepo)
 
 # Starcraft2 Maps with Simple, Universal Retrieval 
 
