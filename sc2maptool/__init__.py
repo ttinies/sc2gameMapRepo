@@ -22,5 +22,6 @@ from __future__ import division       # python 2/3 compatibility
 from __future__ import print_function # python 2/3 compatibility
 
 # NOTE: Reference python sc2scenarios --help for usage descriptions
-from .functions import selectMap
-from .mapRecord import standardizeMapName
+from sc2maptool.functions import selectMap
+from sc2maptool.mapRecord import standardizeMapName
+from sc2maptool.cli import cli

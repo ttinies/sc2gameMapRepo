@@ -4,8 +4,8 @@ from six import iteritems # python 2/3 compatibility
 import random
 import re
 
-from sc2gameMapRepo.index import getIndex
-from sc2gameMapRepo import constants as c
+from sc2maptool.index import getIndex
+from sc2maptool import constants as c
 
 
 ################################################################################

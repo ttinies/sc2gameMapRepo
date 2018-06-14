@@ -2,8 +2,8 @@
 from glob import glob
 import os
 
-from sc2gameMapRepo.mapRecord import MapRecord
-from sc2gameMapRepo import constants as c
+from sc2maptool.mapRecord import MapRecord
+from sc2maptool import constants as c
 
 ################################################################################
 class IndexCache(object):
@@ -25,7 +25,7 @@ def getIndex(folderPath=c.MAPS_FOLDER):
             if   os.path.isdir(item):               ret += folderSearch(item, attrList + [itemName])
             elif itemName.endswith(c.SC2_MAP_EXT):  ret.append( MapRecord(itemName, item, attrList) )
         return ret
-    ############################################################################    
+    ############################################################################
     cache.structure = folderSearch(folderPath)
     return cache.structure
 
