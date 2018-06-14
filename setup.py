@@ -95,9 +95,9 @@ setup(
     python_requires=REQUIRES_PYTHON,
     url=URL,
     packages=find_packages(exclude=('tests',)),
-     entry_points={
+    entry_points={
          'console_scripts': ['sc2maptool=sc2maptool.cli:cli'],
-     },
+    },
     install_requires=REQUIRED,
     include_package_data=True,
     license='Apache License 2.0',
