@@ -17,7 +17,7 @@ DESCRIPTION = 'Manage Starcraft2 (SC2) maps for use by developers creating bots,
 URL = 'https://github.com/ttinies/sc2gameMapRepo'
 EMAIL = 'chageme'
 AUTHOR = 'change me'
-REQUIRES_PYTHON = '>=2.7.14, >=3.3'
+REQUIRES_PYTHON = '>=2.7, >=3.3'
 VERSION = None
 
 # What packages are required for this module to be executed?
