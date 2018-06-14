@@ -1,2 +1,2 @@
 include README.md LICENSE
-recursive-include sc2maptool/maps/* 
+recursive-include *.SC2Map 
