@@ -3,14 +3,14 @@ from __future__ import absolute_import
 from __future__ import division       # python 2/3 compatibility
 from __future__ import print_function # python 2/3 compatibility
 
-from sc2gameMapRepo import __version__
-from sc2gameMapRepo import constants as c
-from sc2gameMapRepo.functions import selectMap, filterMapAttrs, filterMapNames
-from sc2gameMapRepo.index import getIndex
+from sc2maptool import __version__
+from sc2maptool import constants as c
+from sc2maptool.functions import selectMap, filterMapAttrs, filterMapNames
+from sc2maptool.index import getIndex
 
 
 #################################################################################
-if __name__=='__main__': # mini/unit test
+def cli(): # mini/unit test
     """
     PURPOSE: command-line interface for map information
     """
