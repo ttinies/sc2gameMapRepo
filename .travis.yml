@@ -1,6 +1,6 @@
 language: python
 python:
-#  - "2.7" Need to fix issue #2 first
+  - "2.7" #Need to fix issue #2 first
   - "3.3"
   - "3.4"
   - "3.5"
