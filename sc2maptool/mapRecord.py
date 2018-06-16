@@ -41,6 +41,12 @@ class MapRecord(object):
         self._attrs = [a for a in self.__dict__ if a not in MapRecord.EXCLUDED_ATTRS]
         return self._attrs
     ############################################################################
+    @property
+    def rawData(self):
+        """the raw, binary contents of the Starcraft2 map file"""
+        with open(self.path, "rb") as f:
+            return f.read()
+    ############################################################################
     def display(self):
         print(self)
         for a in self.attrs:
