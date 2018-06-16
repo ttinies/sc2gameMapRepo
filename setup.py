@@ -17,7 +17,7 @@ DESCRIPTION = 'Manage Starcraft2 (SC2) maps for use by developers creating bots,
 URL = 'https://github.com/ttinies/sc2gameMapRepo'
 EMAIL = 'chageme'
 AUTHOR = 'change me'
-REQUIRES_PYTHON = '>=3.6.0'
+REQUIRES_PYTHON = '>2.6' # This is how other people do it https://github.com/requests/requests/blob/master/setup.py#L82
 VERSION = None
 
 # What packages are required for this module to be executed?
@@ -95,11 +95,12 @@ setup(
     python_requires=REQUIRES_PYTHON,
     url=URL,
     packages=find_packages(exclude=('tests',)),
-     entry_points={
+    entry_points={
          'console_scripts': ['sc2maptool=sc2maptool.cli:cli'],
-     },
+    },
     install_requires=REQUIRED,
     include_package_data=True,
+    package_data={'sc2maptool': 'sc2maptool/maps/*'},
     license='Apache License 2.0',
     classifiers=[
         # Trove classifiers

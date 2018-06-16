@@ -1,0 +1,5 @@
+six
+pytest
+pytest-cov
+coveralls
+PyYAML
