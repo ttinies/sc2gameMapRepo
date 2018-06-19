@@ -1,8 +1,25 @@
+from sc2maptool import cli
 from sc2maptool import functions as f
 from sc2maptool import index
 from sc2maptool import selectMap
 from sc2maptool import standardizeMapName
 from sc2maptool.mapRecord import MapRecord
+
+
+def test_cli():
+    import sys
+    sys.argv = ["--list", "--mapname=MechDepot"]
+    cli()
+    sys.argv = ["--details", "--mapname=MechDepot"]
+    cli()
+    sys.argv = ["--details", "--mapname=zx"]
+    cli()
+    sys.argv = ["--mapname=zx"]
+    cli()
+    sys.argv = ["--best", "--mapname=a"]
+    cli()
+    sys.argv = ["--best", "--path", "--mapname=a"]
+    cli()
 
 
 def test_index():
