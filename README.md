@@ -74,7 +74,7 @@ dependency: [six](https://pypi.org/project/six/) (python2 and python 3 compatibi
 ---
 ## Recommended Usage
 
-Refer to [python](/blob/master/USAGE_PUTHON.md)-specific or [non python](/blob/master/USAGE_NON_PYTHON.md)-specific usage documents.
+Refer to [python](https://github.com/ttinies/sc2gameMapRepo/blob/master/USAGE_PYTHON.md)-specific or [non python](https://github.com/ttinies/sc2gameMapRepo/blob/master/USAGE_NON_PYTHON.md)-specific usage documents.
 
 ---
 ## Troubleshooting
