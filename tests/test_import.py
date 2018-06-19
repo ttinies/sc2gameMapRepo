@@ -35,6 +35,9 @@ def test_filter_map():
 def test_match_attrs():
     boardwalk = selectMap("boardwalk")
     assert False == f.matchRecordAttrs(boardwalk, {"asdjfd":True})
+    assert True  == f.matchRecordAttrs(boardwalk, {"asdjfd":None})
+    assert True  == f.matchRecordAttrs(boardwalk, {"asdjfd":""})
+    assert True  == f.matchRecordAttrs(boardwalk, {"asdjfd":0})
     assert True  == f.matchRecordAttrs(boardwalk, {"asdjfd":False})
     assert False == f.matchRecordAttrs(boardwalk, {"year":2016})
     assert True  == f.matchRecordAttrs(boardwalk, {"year":2017})
@@ -126,11 +129,10 @@ def test_map_selection():
     iterCases(casesExclusion, True)
     newMap = selectMap(year=2018, season=1) # get exactly one map
     assert not isinstance(newMap, list)
-    try: # bad attrs causes an exception
-        selectMap(year=1970)
-        assert False
-    except:
-        assert True
+    try:    assert False and selectMap(year=1970)
+    except: assert True # bad attrs causes an exception
+    try:    assert False and selectMap("z", year=2018, season=2)
+    except: assert True # force attribute selection AND bad name filtering resuling in no matches
 
 
 def test_names():
