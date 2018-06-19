@@ -131,7 +131,6 @@ welcome.
 
 ###### Anticipated Useful, To-Be-Developed Features
 
-* Completed automated test coverage (cli.py).
 * Additional language-specific interfaces beyond Python.
 * package management support: [PyPi](https://pypi.org/) / [pip](https://pypi.org/project/pip/) and [conda](https://www.anaconda.com/what-is-anaconda/).
 * Accomodations for unforseen/unhandled incompatibility issues.
