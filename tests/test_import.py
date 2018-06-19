@@ -5,6 +5,18 @@ from sc2maptool.mapRecord import MapRecord
 def test_simple():
     for m in selectMap(name="flat", melee=True, excludeName=True, closestMatch=False):
         assert isinstance(m, MapRecord)
+        assert isinstance(x.rawData, bytes) # requires real paths
+
+
+def test_map_record():
+    x = MapRecord("test", "testpath", ["ftrue", "fval123bc", "fint12"])
+    assert x.display() == None
+    assert type(str(x)) == str
+    assert type(repr(x)) == str
+    assert x.ftrue == True
+    assert x.fval  == "123bc"
+    assert x.fint  == 12
+    assert len(x.attrs) == 4
 
 
 def test_map_selection():
@@ -70,6 +82,8 @@ def display_test(testIn, testOut, testExpect):
 
 
 if __name__=="__main__":
-    test_names()
-    test_map_selection()
+    #test_simple()
+    test_map_record()
+    #test_names()
+    #test_map_selection()
 
