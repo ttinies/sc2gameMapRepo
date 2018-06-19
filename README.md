@@ -1,5 +1,4 @@
-
-[![Coverage Status](https://coveralls.io/repos/github/ttinies/sc2gameMapRepo/badge.svg)](https://coveralls.io/github/ttinies/sc2gameMapRepo?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/ttinies/sc2gameMapRepo/badge.svg?branch=master)](https://coveralls.io/github/ttinies/sc2gameMapRepo?branch=master)
 [![Build Status](https://travis-ci.org/ttinies/sc2gameMapRepo.svg?branch=master)](https://travis-ci.org/ttinies/sc2gameMapRepo)
 
 # Starcraft2 Maps with Simple, Universal Retrieval 
