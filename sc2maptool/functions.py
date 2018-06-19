@@ -40,7 +40,7 @@ def matchRecordAttrs(mapobj, attrs):
     for k,v in iteritems(attrs):
         try:    val = getattr(mapobj, k)
         except AttributeError:       # k isn't an attr of record
-            if v:       return False # if k doesn't exist in mapobj but was required, no match
+            if bool(v): return False # if k doesn't exist in mapobj but was required, no match
             else:       continue     # otherwise ignore attributes that aren't defined for the given map record
         if val != v:    return False # if any criteria matches, it's considered a match
     return True                      # all criteria matched at all

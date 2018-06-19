@@ -64,14 +64,12 @@ dependency: [six](https://pypi.org/project/six/) (python2 and python 3 compatibi
 #### Instructions
 
 1. Install any(?) version of [python](https://www.python.org/downloads/) and use [pip](https://pypi.org/project/pip/) to install [six](https://pypi.org/project/six/).
-2. git clone https://github.com/ttinies/sc2gameMapRepo (or fork and clone your repo).
-> NOTE: to ensure the destination is visible by your project, consider the following strategies:
-> * install this package within your own project
-> * add `<destination>` to the environment variable: `PYTHONPATH`
-> * `.../<Python folder>/Lib/site-packages/sc2gameMapRepo/` (similar to what a pip install would do)
-
-**TIP**: adding sc2gameMapRepo to the system path using the %PYTHONPATH% variable
-can help python locate your sc2gameMapRepo installation.
+2. git clone https://github.com/ttinies/sc2gameMapRepo (or fork and clone your repo) to `<destination>`.
+3. Ensure `<destination>` is in your `PYTHONPATH`.  Options:
+   * `pip install -e <destination>` and then `import sc2maptools` to ensure the package was installed correctly.
+   * install this package with `<destination>` within your own project
+   * add `<destination>` to the environment variable: `PYTHONPATH`
+   * `.../<Python folder>/Lib/site-packages/sc2gameMapRepo/` (similar to what a pip install would do)
 
 ---
 ## Recommended Usage
@@ -133,7 +131,7 @@ welcome.
 
 ###### Anticipated Useful, To-Be-Developed Features
 
-* Automated testing of package functionality.
+* Completed automated test coverage (cli.py).
 * Additional language-specific interfaces beyond Python.
 * package management support: [PyPi](https://pypi.org/) / [pip](https://pypi.org/project/pip/) and [conda](https://www.anaconda.com/what-is-anaconda/).
 * Accomodations for unforseen/unhandled incompatibility issues.
