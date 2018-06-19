@@ -5,7 +5,7 @@ from sc2maptool.mapRecord import MapRecord
 def test_simple():
     for m in selectMap(name="flat", melee=True, excludeName=True, closestMatch=False):
         assert isinstance(m, MapRecord)
-        assert isinstance(x.rawData, bytes) # requires real paths
+        assert isinstance(m.rawData, bytes) # requires real paths
 
 
 def test_map_record():
