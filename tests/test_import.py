@@ -8,17 +8,17 @@ from sc2maptool.mapRecord import MapRecord
 
 def test_cli():
     import sys
-    sys.argv = ["--list", "--mapname=MechDepot"]
+    sys.argv = ["--mapname=MechDepot", "--list"]
     cli()
-    sys.argv = ["--details", "--mapname=MechDepot"]
+    sys.argv = ["--mapname=MechDepot", "--details"]
     cli()
-    sys.argv = ["--details", "--mapname=zx"]
+    sys.argv = ["--mapname=zx", "--details"]
     cli()
     sys.argv = ["--mapname=zx"]
     cli()
-    sys.argv = ["--best", "--mapname=a"]
+    sys.argv = ["--mapname=a", "--best"]
     cli()
-    sys.argv = ["--best", "--path", "--mapname=a"]
+    sys.argv = ["--mapname=a", "--best", "--path"]
     cli()
 
 
