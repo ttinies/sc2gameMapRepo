@@ -55,11 +55,15 @@ def cli(): # mini/unit test
         else:
             print("No matching maps found.")
     else:
-        specifiedMaps = selectMap(
-            options.mapname,
-            excludeName =options.exclude,
-            closestMatch=options.best,
-            **params)
+        try:
+            specifiedMaps = selectMap(
+                options.mapname,
+                excludeName =options.exclude,
+                closestMatch=options.best,
+                **params)
+        except Exception as e:
+            specifiedMaps = []
+            print("No matching maps found: %s"%e)
         if not isinstance(specifiedMaps, list):
             specifiedMaps = [specifiedMaps]
         for m in specifiedMaps:
