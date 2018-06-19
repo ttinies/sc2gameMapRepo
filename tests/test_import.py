@@ -1,11 +1,79 @@
+from sc2maptool import functions as f
+from sc2maptool import index
 from sc2maptool import selectMap
 from sc2maptool import standardizeMapName
 from sc2maptool.mapRecord import MapRecord
+
+
+def test_index():
+    idx1 = index.getIndex()
+    idx2 = index.getIndex()
+    newCache = index.IndexCache()
+    assert len(index.c.EXCLUDED_KEYS) == 6
+    x = index.c.InvalidMapSelection()
+    try:
+        raise index.c.InvalidMapSelection("test")
+        assert False
+    except:
+        assert True
+    assert isinstance(index.c.MAPS_FOLDER, str)
+    assert isinstance(index.c.SC2_MAP_EXT, str)
+
 
 def test_simple():
     for m in selectMap(name="flat", melee=True, excludeName=True, closestMatch=False):
         assert isinstance(m, MapRecord)
         assert isinstance(m.rawData, bytes) # requires real paths
+
+
+def test_filter_map():
+    r1 = f.filterMapAttrs(ladder=False)
+    r2 = f.filterMapAttrs(r1) # no tags means return param as is
+    assert r1 == r2
+
+
+def test_match_attrs():
+    boardwalk = selectMap("boardwalk")
+    assert False == f.matchRecordAttrs(boardwalk, {"asdjfd":True})
+    assert True  == f.matchRecordAttrs(boardwalk, {"asdjfd":False})
+    assert False == f.matchRecordAttrs(boardwalk, {"year":2016})
+    assert True  == f.matchRecordAttrs(boardwalk, {"year":2017})
+    assert True  == f.matchRecordAttrs(boardwalk, {})
+
+
+def test_filter_map_names():
+    r = f.filterMapNames("nav", closestMatch=False)
+    assert len(r) == 1
+    assert r[0].name == "MoveToBeaconAvoidBaneling"
+    r = f.filterMapNames("w[ea][rt]", closestMatch=False)
+    rNames = {m.name for m in r}
+    assert len(rNames) == 3
+    assert "Backwater"          in rNames
+    assert "Eastwatch"          in rNames
+    assert "FlowerFields"       in rNames
+    rNames = {m.name for m in f.filterMapNames("a", closestMatch=True)}
+    assert len(rNames) == 4
+    assert "Flat32"             in rNames
+    assert "Flat48"             in rNames
+    assert "Flat64"             in rNames
+    assert "Flat96"             in rNames
+    rNames = {m.name for m in f.filterMapNames("e", closestMatch=True)}
+    assert len(rNames) == 3
+    assert "Acolyte"            in rNames
+    assert "Odyssey"            in rNames
+    assert "RedCity"            in rNames
+    rNames = {m.name for m in f.filterMapNames("i", closestMatch=True)}
+    assert len(rNames) == 1
+    assert "16Bit"              in rNames
+    rNames = {m.name for m in f.filterMapNames("[amoqy6]", excludeRegex=True, closestMatch=False)}
+    assert len(rNames) == 3
+    assert "Redshift"           in rNames
+    assert "BelShirVestige"     in rNames
+    assert "NewkirkPrecinct"    in rNames
+    rNames = {m.name for m in f.filterMapNames("e", excludeRegex=True, closestMatch=True)}
+    assert len(rNames) == 2
+    assert "16Bit"              in rNames
+    assert "Frost"              in rNames
 
 
 def test_map_record():
@@ -56,6 +124,13 @@ def test_map_selection():
             display_test(thisInput, len(mapResults), len(thisExpect))
     iterCases(casesInclusion, False)
     iterCases(casesExclusion, True)
+    newMap = selectMap(year=2018, season=1) # get exactly one map
+    assert not isinstance(newMap, list)
+    try: # bad attrs causes an exception
+        selectMap(year=1970)
+        assert False
+    except:
+        assert True
 
 
 def test_names():
@@ -79,11 +154,4 @@ def display_test(testIn, testOut, testExpect):
     """display test condition and its result, then assert the result"""
     print("%s%s =>  %s == %s"%(testIn, " "*max(0, 30-len(str(testIn))), testOut, testExpect))
     assert testExpect == testOut
-
-
-if __name__=="__main__":
-    #test_simple()
-    test_map_record()
-    #test_names()
-    #test_map_selection()
 
