@@ -15,15 +15,24 @@ def test_map_selection():
         # INPUT TEST CASE   EXPECTED RESULT
         ("zerg",            ["DefeatZerglingsAndBanelings", "FindAndDefeatZerglings"]),
         ("AndBane",         ["DefeatZerglingsAndBanelings"]),
+        ("e[ar].*r$",       ["Interloper", "Dreamcatcher"]), #accepts regular expression
+        ("^b.*a.*k$",       ["BattleOnTheBoardwalk", "Blackpink", "Blackpink"]),
         ("x",               ["ProximaStation", "ProximaStation"]), # identifies multiple results for their unique paths
-        ("^x",              Exception), # accepts regular expression
+        ("^x",              Exception), # none of the maps start with an 'x'
         ("^abi",            ["Abiogenesis"]),
+        ("128$",            ["Flat128", "Simple128"]),
+        (".{1}[^o]nt",      ["AcidPlant", "AcidPlant"]),
     ]
     casesExclusion = [
-        # INPUT TEST CASE               EXPECTED RESULT          WHAT IS TESTED
-        
+        # INPUT TEST CASE   EXPECTED RESULT
+        ("[\w]",            Exception), # if ignoring all valid chars, error!
+        ("[aeiou]",         Exception), # all maps have a vowel
+        ("[aiy]",           ["Honorgrounds", "Sequencer", "Frost", "MechDepot"]), # all maps without an a, i or y
+        ("[cefgxk1]",       ["BloodBoil", "HitAndRun"]),
+        ("^[^p]",           ["PaladinoTerminal", "ProximaStation", "ProximaStation", "PredictBattleOutcome"]),
+        ("[aiot]",          ["Sequencer"]),
     ]
-    def iterCases(cases, exclusion)
+    def iterCases(cases, exclusion):
         for thisInput, thisExpect in cases:
             try:    mapResults = selectMap(name=thisInput, excludeName=exclusion, closestMatch=False)
             except:
