@@ -15,8 +15,8 @@ from setuptools import find_packages, setup, Command
 NAME = 'sc2maptool'
 DESCRIPTION = 'Manage Starcraft2 (SC2) maps for use by developers creating bots, AI agents or some other custom code project.'
 URL = 'https://github.com/ttinies/sc2gameMapRepo'
-EMAIL = 'chageme'
-AUTHOR = 'change me'
+EMAIL = 'help.fool@versentiedge.com'
+AUTHOR = 'Versentiedge LLC'
 REQUIRES_PYTHON = '>2.6' # This is how other people do it https://github.com/requests/requests/blob/master/setup.py#L82
 VERSION = None
 
