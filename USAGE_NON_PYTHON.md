@@ -6,7 +6,7 @@ a new process using the `python` command.  Once installed, prove its successful
 installation by invoking the --help option on the command line.
 
 ```shell
-$ python -m sc2gameMapRepo --help
+$ sc2maptool --help
 usage:  [-h] [--list] [--details] [--path] [--mapname MAPNAME] [--exclude]
         [--best] [--ladder LADDER] [--combat COMBAT] [--economy ECONOMY]
         [--scenario SCENARIO] [--misc MISC] [--test TEST] [--year YEAR]
@@ -65,8 +65,6 @@ Reference `--help` for details on paramater usage.
 * `--season`
 * `--mode`
 
-**IMPORTANT**: non-python users are restricted to these attributes.  `__main__.py`
-must be updated if additional attributes are desired.
 
 ### Positive or Negative Assertion
 
@@ -81,7 +79,7 @@ the attribute whereas other values positively assert matching.
 
 EXAMPLE: find the absolute path of all 2018, season2 ladder maps. 
 ```shell
-$ python sc2gameMapRepo --ladder=True --year=2018 --season=2 --path
+$ sc2maptool --ladder=True --year=2018 --season=2 --path
 ```
 ```
 <InstallPath>\sc2gameMapRepo\Maps\Ladder\mode1v1\year2018\Season2\16BitLE.SC2Map
@@ -96,7 +94,7 @@ $ python sc2gameMapRepo --ladder=True --year=2018 --season=2 --path
 EXAMPLE: find the names of all that contain `marine` in the name and are tagged
 in a `scenario` subfolder.
 ```shell
-$ python sc2gameMapRepo --mapname=marine --combat=True
+$ sc2maptool --mapname=marine --combat=True
 ```
 ```
 Banshee2vsMarine8
@@ -108,7 +106,7 @@ EXAMPLE: select the 'best' `season 1` map
 > NOTE: the matching map pool includes ladders maps from season 1 of both 2017 and 2018.
 > NOTE: the map is selected at random so the result may vary.
 ```shell
-$ python sc2gameMapRepo --season=1 --best
+$ sc2maptool --season=1 --best
 ```
 ```
 Blackpink
@@ -118,7 +116,7 @@ EXAMPLE: show map attribute details for all maps with `acid` in their name.
 > NOTE: notice in this case that the same map was listed twice, but correctly
 > distinguished them as belonging to both seasons 1 and 2.
 ```shell
-$ python sc2gameMapRepo --mapname=acid --details
+$ sc2maptool --mapname=acid --details
 ```
 ```
 <MapRecord "AcidPlant">
