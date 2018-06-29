@@ -3,7 +3,7 @@ from __future__ import absolute_import
 from __future__ import division       # python 2/3 compatibility
 from __future__ import print_function # python 2/3 compatibility
 
-from sc2maptool import __version__
+from sc2maptool.__version__ import __version__
 from sc2maptool import constants as c
 from sc2maptool.functions import selectMap, filterMapAttrs, filterMapNames
 from sc2maptool.index import getIndex
