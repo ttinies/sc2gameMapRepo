@@ -22,6 +22,7 @@ def test_cli():
     cli()
     sys.argv = ['', "--mapname=a", "--best", "--path"]
     cli()
+    from sc2maptool import __main__
 
 
 def test_index():
