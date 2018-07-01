@@ -9,7 +9,7 @@ def standardizeMapName(mapName):
     newName = os.path.basename(mapName)
     newName = newName.split(".")[0]
     newName = newName.split("(")[0]
-    newName = re.sub("[LTE]+$", "", newName)
+    newName = re.sub("[LT]E+$", "", newName)
     return re.sub(' ', '', newName, flags=re.UNICODE)
 
 
