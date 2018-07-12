@@ -25,3 +25,5 @@ from __future__ import print_function # python 2/3 compatibility
 from sc2maptool.functions import selectMap
 from sc2maptool.mapRecord import standardizeMapName
 from sc2maptool.cli import cli
+
+from sc2maptool.__version__ import *
