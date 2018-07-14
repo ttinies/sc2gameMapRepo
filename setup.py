@@ -100,7 +100,7 @@ setup(
     },
     install_requires=REQUIRED,
     include_package_data=True,
-    package_data={"sc2maptool": ["sc2maptool/maps/*"]},
+    package_data={"sc2maptool": ["sc2maptool/maps/Ladder/mode1v1/year2018/*"]},
     license="Apache License 2.0",
     classifiers=[
         # Trove classifiers
