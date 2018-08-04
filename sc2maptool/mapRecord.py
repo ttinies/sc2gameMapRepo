@@ -10,6 +10,7 @@ def standardizeMapName(mapName):
     newName = newName.split(".")[0]
     newName = newName.split("(")[0]
     newName = re.sub("[LT]E+$", "", newName)
+    newName = re.sub("-", "", newName)
     return re.sub(' ', '', newName, flags=re.UNICODE)
 
 
