@@ -2,16 +2,26 @@
 import os
 import re
 
+from sc2maptool import constants as c
+
 
 ################################################################################
 def standardizeMapName(mapName):
     """pretty-fy the name for pysc2 map lookup"""
+    #print("foreignName: %s  (%s)"%(mapName, mapName in c.mapNameTranslations))
+    #if mapName in c.mapNameTranslations:
+    #    return c.mapNameTranslations[mapName]
     newName = os.path.basename(mapName)
     newName = newName.split(".")[0]
     newName = newName.split("(")[0]
     newName = re.sub("[LT]E+$", "", newName)
     newName = re.sub("-", "", newName)
-    return re.sub(' ', '', newName, flags=re.UNICODE)
+    newName = re.sub(' ', '', newName, flags=re.UNICODE)
+    foreignName = newName#bytes(mapName, 'utf-16')
+    #print("foreignName: %s  (%s)"%(foreignName, foreignName in c.mapNameTranslations))
+    if foreignName in c.mapNameTranslations:
+        return c.mapNameTranslations[foreignName]
+    return newName
 
 
 ################################################################################
