@@ -1,2 +1,4 @@
 include README.md LICENSE
+recursive-include sc2maptool/maps/Ladder/mode1v1/year2017/Season3 *.SC2Map
+recursive-include sc2maptool/maps/Ladder/mode1v1/year2017/Season4 *.SC2Map
 recursive-include sc2maptool/maps/Ladder/mode1v1/year2018 *.SC2Map
