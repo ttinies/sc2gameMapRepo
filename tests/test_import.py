@@ -77,10 +77,9 @@ def test_filter_map_names():
     display_test(rNames, len(rNames), 1)
     assert "Catalyst"           in rNames
     rNames = {m.name for m in f.filterMapNames("[rst]e", closestMatch=True)}
-    display_test(rNames, len(rNames), 3)
-    assert "Fracture"           in rNames
-    assert "Parasite"           in rNames
-    assert "Redshift"           in rNames
+    display_test(rNames, len(rNames), 2)
+    assert "Acolyte"            in rNames
+    assert "Odyssey"            in rNames
     rNames = {m.name for m in f.filterMapNames("bi", closestMatch=True)}
     display_test(rNames, len(rNames), 1)
     assert "16Bit"              in rNames
@@ -90,7 +89,7 @@ def test_filter_map_names():
     assert "Blueshift"          in rNames
     rNames = {m.name for m in f.filterMapNames("[toi]", excludeRegex=True, closestMatch=True)}
     display_test(rNames, len(rNames), 1)
-    assert "CeruleanFall"       in rNames
+    assert "AbyssalReef"        in rNames
 
 
 def test_map_record():
@@ -110,11 +109,11 @@ def test_map_selection():
         assert isinstance(selectMap(), MapRecord)
     casesInclusion = [
         # INPUT TEST CASE   EXPECTED RESULT
-        ("ar",              ["NeonVioletSquare", "DarknessSanctuary", "Parasite"]),
+        ("ar",              ["BattleOnTheBoardwalk", "NeonVioletSquare", "NeonVioletSquare", "DarknessSanctuary", "Parasite"]),
         ("And",             ["LostAndFound", "LostAndFound"]),
-        ("e[ar].*r$",       ["Dreamcatcher"]), #accepts regular expression
-        ("^b.*a.*k$",       ["Blackpink"]),
-        ("q",               ["NeonVioletSquare"]), # identifies multiple results for their unique paths
+        ("e[ar].*r$",       ["Dreamcatcher", "Interloper"]), #accepts regular expression
+        ("^b.*a.*k$",       ["BattleOnTheBoardwalk", "Blackpink", "Blackpink"]),
+        ("q",               ["abc", "NeonVioletSquare"]), # identifies multiple results for their unique paths
         ("^x",              Exception), # none of the maps start with an 'x'
         ("^abi",            ["Abiogenesis"]),
         ("[ui][rt]e$",      ["Fracture", "Parasite"]),
@@ -125,9 +124,9 @@ def test_map_selection():
         ("[\w]",            Exception), # if ignoring all valid chars, error!
         ("[aeiou]",         Exception), # all maps have a vowel
         ("[diyt]",          ["CeruleanFall"]), # all maps without an a, i or y
-        ("[qt]",            ["Abiogenesis", "Blackpink", "CeruleanFall"]),
+        ("[qty]",           ["Abiogenesis", "Blackpink", "Blackpink", "CeruleanFall"]),
         ("^[^d]",           ["DarknessSanctuary", "Dreamcatcher"]),
-        ("[t]",             ["Abiogenesis", "Blackpink", "CeruleanFall"]),
+        ("[ae]",            ["Frost", "16Bit"]),
     ]
     def iterCases(cases, exclusion):
         for thisInput, thisExpect in cases:
