@@ -49,7 +49,7 @@ mapNameTranslations = { # use byte representations to avoid requiring encodings
     b'\xff\xfe\xa2~\xfby)Y\xafhHr'                                                          : REDSHIFT,
     ##### FRENCH #####
     b'\xff\xfe1\x006\x00b\x00i\x00t\x00s\x00E\x00C\x00'                                     : _16BIT,
-    b'acid plant'                                                                           : ACID_PLANT,
+    b'\xff\xfeC\x00o\x00r\x00r\x00o\x00s\x00i\x00o\x00n\x00E\x00C\x00'                      : ACID_PLANT,
     b'\xff\xfeR\x00i\x00v\x00a\x00g\x00e\x00s\x00b\x00l\x00e\x00u\x00s\x00E\x00C\x00'       : BLUESHIFT,
     b'\xff\xfeR\x00i\x00v\x00a\x00g\x00e\x00s\x00b\x00l\x00e\x00u\x00s\x00E\x00C\x00'       : BLUESHIFT,
     b'\xff\xfeC\x00a\x00t\x00a\x00l\x00y\x00s\x00e\x00u\x00r\x00E\x00C\x00'                 : CATALYST,
@@ -68,6 +68,7 @@ mapNameTranslations = { # use byte representations to avoid requiring encodings
     b'\xff\xfeD\x00u\x00n\x00k\x00l\x00e\x00s\x00R\x00e\x00f\x00u\x00g\x00i\x00u\x00m\x00'  : DARKNESS_SANCTUARY,
     b'\xff\xfeT\x00r\x00a\x00u\x00m\x00f\x00\xe4\x00n\x00g\x00e\x00r\x00'                   : DREAM_CATCHER,
     b'\xff\xfeF\x00r\x00a\x00k\x00t\x00u\x00r\x00'                                          : FRACTURE,
+    b'\xff\xfeR\x00o\x00t\x00s\x00t\x00i\x00c\x00h\x00'                                     : REDSHIFT,
     b'\xff\xfeF\x00u\x00n\x00d\x00g\x00r\x00u\x00b\x00e\x00'                                : TREASURE_TROVE,
     b'\xff\xfeT\x00r\x00e\x00a\x00s\x00u\x00r\x00e\x00T\x00r\x00o\x00v\x00e\x00'            : TREASURE_TROVE,
     ##### ITALIAN #####
@@ -77,6 +78,7 @@ mapNameTranslations = { # use byte representations to avoid requiring encodings
                                                                                             : DARKNESS_SANCTUARY,
     b'\xff\xfeA\x00c\x00c\x00h\x00i\x00a\x00p\x00p\x00a\x00s\x00o\x00g\x00n\x00i\x00'       : DREAM_CATCHER,
     b'\xff\xfeS\x00t\x00r\x00a\x00d\x00e\x00p\x00e\x00r\x00d\x00u\x00t\x00e\x00'            : LOST_AND_FOUND,
+    b'\xff\xfeO\x00m\x00b\x00r\x00e\x00r\x00o\x00s\x00s\x00e\x00'                           : REDSHIFT,
     ##### KOREAN #####
     b'\xff\xfe1\x006\x00D\xbe\xb8\xd2\x98\xb7T\xb3'                                         : _16BIT,
     b'\xff\xfe`\xc5(\xc5\xdc\xb4\x0c\xd5\x9c\xb7\xb8\xd2\x98\xb7T\xb3'                      : ACID_PLANT,
@@ -88,6 +90,12 @@ mapNameTranslations = { # use byte representations to avoid requiring encodings
     b'\xff\xfe\x04\xd5\x99\xb7\x98\xcc'                                                     : FRACTURE,
     b'\xff\xfe\x0c\xd3|\xb7\xac\xc0t\xc7\xb8\xd2'                                           : PARASITE,
     b'\xff\xfe\x08\xb8\xdc\xb4l\xc2\x04\xd5\xb8\xd2\x98\xb7T\xb3'                           : REDSHIFT,
+    ##### PORTUGEUESE #####
+    b'\xff\xfeU\x00s\x00i\x00n\x00a\x00\xc1\x00c\x00i\x00d\x00a\x00'                        : ACID_PLANT,
+    b'\xff\xfeC\x00a\x00t\x00a\x00l\x00i\x00s\x00a\x00d\x00o\x00r\x00'                      : CATALYST,
+    b'\xff\xfeA\x00p\x00a\x00n\x00h\x00a\x00d\x00o\x00r\x00d\x00e\x00S\x00o\x00n\x00h\x00o\x00s\x00' : DREAM_CATCHER,
+    b'\xff\xfeS\x00a\x00n\x00t\x00u\x00\xe1\x00r\x00i\x00o\x00d\x00a\x00s\x00T\x00r\x00e\x00v\x00a\x00s\x00'
+                                                                                            : DARKNESS_SANCTUARY,
     ##### POLISH #####
     b'\xff\xfeW\x00y\x00t\x00w\x00\xf3\x00r\x00n\x00i\x00a\x00K\x00w\x00a\x00s\x00u\x00E\x00R\x00'
                                                                                             : ACID_PLANT,
@@ -127,6 +135,7 @@ mapNameTranslations = { # use byte representations to avoid requiring encodings
     b'\xff\xfeA\x00t\x00r\x00a\x00p\x00a\x00s\x00u\x00e\x00\xf1\x00o\x00s\x00E\x00J\x00'    : DREAM_CATCHER,
     b'\xff\xfeF\x00r\x00a\x00c\x00t\x00u\x00r\x00a\x00E\x00J\x00'                           : FRACTURE,
     b'\xff\xfeF\x00r\x00a\x00c\x00t\x00u\x00r\x00a\x00E\x00E\x00'                           : FRACTURE,
+    b'\xff\xfeL\x00a\x00b\x00e\x00r\x00i\x00n\x00t\x00o\x00E\x00J\x00'                      : LABYRINTH,
     b'\xff\xfeO\x00b\x00j\x00e\x00t\x00o\x00s\x00p\x00e\x00r\x00d\x00i\x00d\x00o\x00s\x00E\x00E\x00'    : LOST_AND_FOUND,
     b'\xff\xfeA\x00c\x00h\x00a\x00d\x00o\x00s\x00e\x00P\x00e\x00r\x00d\x00i\x00d\x00o\x00s\x00'         : LOST_AND_FOUND,
     b'\xff\xfeP\x00a\x00r\x00a\x00S\x00i\x00t\x00o\x00E\x00E\x00'                           : PARASITE,
@@ -135,19 +144,16 @@ mapNameTranslations = { # use byte representations to avoid requiring encodings
     b'\xff\xfe1\x006\x00B\x00i\x00t\x00s\x00'                                               : _16BIT,
     b'\xff\xfe1\x006\x00b\x00i\x00t\x00s\x00E\x00E\x00'                                     : _16BIT,
     b'\xff\xfe1\x006\x00b\x00i\x00t\x00s\x00E\x00J\x00'                                     : _16BIT,
-    b'\xff\xfeU\x00s\x00i\x00n\x00a\x00\xc1\x00c\x00i\x00d\x00a\x00'                        : ACID_PLANT,
-    b'\xff\xfeC\x00o\x00r\x00r\x00o\x00s\x00i\x00o\x00n\x00E\x00C\x00'                      : ACID_PLANT,
+    b'acid plant'                                                                           : ACID_PLANT,
     b'\xff\xfeD\x00e\x00s\x00v\x00i\x00o\x00p\x00a\x00r\x00a\x00o\x00A\x00z\x00u\x00l\x00'  : BLUESHIFT,
     b'\xff\xfeF\x00r\x00a\x00c\x00t\x00u\x00r\x00e\x00'                                     : FRACTURE,
     b'\xff\xfeH\x00i\x00g\x00h\x00S\x00p\x00i\x00r\x00i\x00t\x00e\x00d\x00P\x00l\x00a\x00t\x00f\x00o\x00r\x00m\x00'
                                                                                             : HIGH_SPIRIT_PLATFORM,
     b'\xff\xfel\x00a\x00b\x00y\x00r\x00i\x00n\x00t\x00h\x00'                                : LABYRINTH,
-    b'\xff\xfeL\x00a\x00b\x00e\x00r\x00i\x00n\x00t\x00o\x00E\x00J\x00'                      : LABYRINTH,
     b'\xff\xfeP\x00a\x00r\x00a\x00S\x00i\x00t\x00e\x00'                                     : PARASITE,
     b'\xff\xfeR\x00e\x00d\x00i\x00s\x00t\x00r\x00i\x00b\x00u\x00t\x00i\x00o\x00n\x00'       : REDISTRIBUTION,
     b'\xff\xfeD\x00e\x00s\x00v\x00i\x00o\x00p\x00a\x00r\x00a\x00o\x00V\x00e\x00r\x00m\x00e\x00l\x00h\x00o\x00' : REDSHIFT,
     b'\xff\xfeR\x00e\x00d\x00s\x00h\x00i\x00f\x00t\x00E\x00E\x00'                           : REDSHIFT,
-    b'\xff\xfeR\x00o\x00t\x00s\x00t\x00i\x00c\x00h\x00'                                     : REDSHIFT,
 }
 for k,v in list(mapNameTranslations.items()): # convert byte representation into str
     newKey = k.decode('utf-16')
