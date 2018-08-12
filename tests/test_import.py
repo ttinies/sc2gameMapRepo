@@ -41,7 +41,7 @@ def test_index():
 
 
 def test_simple():
-    for m in selectMap(name="flat", melee=True, excludeName=True, closestMatch=False):
+    for m in selectMap(name="oi", season=1, excludeName=True, closestMatch=False):
         assert isinstance(m, MapRecord)
         assert isinstance(m.rawData, bytes) # requires real paths
 
@@ -65,38 +65,32 @@ def test_match_attrs():
 
 
 def test_filter_map_names():
-    r = f.filterMapNames("nav", closestMatch=False)
+    r = f.filterMapNames("water", closestMatch=False)
     assert len(r) == 1
-    assert r[0].name == "MoveToBeaconAvoidBaneling"
+    assert r[0].name == "Backwater"
     r = f.filterMapNames("w[ea][rt]", closestMatch=False)
     rNames = {m.name for m in r}
-    display_test(rNames, len(rNames), 3)
+    display_test(rNames, len(rNames), 2)
     assert "Backwater"          in rNames
     assert "Eastwatch"          in rNames
-    assert "FlowerFields"       in rNames
     rNames = {m.name for m in f.filterMapNames("at", closestMatch=True)}
-    display_test(rNames, len(rNames), 4)
-    assert "Flat32"             in rNames
-    assert "Flat48"             in rNames
-    assert "Flat64"             in rNames
-    assert "Flat96"             in rNames
+    display_test(rNames, len(rNames), 1)
+    assert "Catalyst"           in rNames
     rNames = {m.name for m in f.filterMapNames("[rst]e", closestMatch=True)}
     display_test(rNames, len(rNames), 3)
-    assert "Acolyte"            in rNames
-    assert "Odyssey"            in rNames
-    assert "RedCity"            in rNames
+    assert "Fracture"           in rNames
+    assert "Parasite"           in rNames
+    assert "Redshift"           in rNames
     rNames = {m.name for m in f.filterMapNames("bi", closestMatch=True)}
     display_test(rNames, len(rNames), 1)
     assert "16Bit"              in rNames
     rNames = {m.name for m in f.filterMapNames("[amoqy6]", excludeRegex=True, closestMatch=False)}
-    display_test(rNames, len(rNames), 3)
-    assert "Redshift"           in rNames
-    assert "BelShirVestige"     in rNames
-    assert "NewkirkPrecinct"    in rNames
-    rNames = {m.name for m in f.filterMapNames("[ej]", excludeRegex=True, closestMatch=True)}
     display_test(rNames, len(rNames), 2)
-    assert "16Bit"              in rNames
-    assert "Frost"              in rNames
+    assert "Redshift"           in rNames
+    assert "Blueshift"          in rNames
+    rNames = {m.name for m in f.filterMapNames("[toi]", excludeRegex=True, closestMatch=True)}
+    display_test(rNames, len(rNames), 1)
+    assert "CeruleanFall"       in rNames
 
 
 def test_map_record():
@@ -116,24 +110,24 @@ def test_map_selection():
         assert isinstance(selectMap(), MapRecord)
     casesInclusion = [
         # INPUT TEST CASE   EXPECTED RESULT
-        ("zerg",            ["DefeatZerglingsAndBanelings", "FindAndDefeatZerglings"]),
-        ("AndBane",         ["DefeatZerglingsAndBanelings"]),
-        ("e[ar].*r$",       ["Interloper", "Dreamcatcher"]), #accepts regular expression
-        ("^b.*a.*k$",       ["BattleOnTheBoardwalk", "Blackpink", "Blackpink"]),
-        ("x",               ["ProximaStation", "ProximaStation", "TraitorsExile", "TraitorsExile"]), # identifies multiple results for their unique paths
+        ("ar",              ["NeonVioletSquare", "DarknessSanctuary", "Parasite"]),
+        ("And",             ["LostAndFound", "LostAndFound"]),
+        ("e[ar].*r$",       ["Dreamcatcher"]), #accepts regular expression
+        ("^b.*a.*k$",       ["Blackpink"]),
+        ("q",               ["NeonVioletSquare"]), # identifies multiple results for their unique paths
         ("^x",              Exception), # none of the maps start with an 'x'
         ("^abi",            ["Abiogenesis"]),
-        ("128$",            ["Flat128", "Simple128"]),
-        (".{1}[^o]nt",      ["AcidPlant", "AcidPlant", "LastRemnant", "LastRemnant"]),
+        ("[ui][rt]e$",      ["Fracture", "Parasite"]),
+        (".{1}[^o]nt",      ["AcidPlant", "AcidPlant", "AcidPlant"]),
     ]
     casesExclusion = [
         # INPUT TEST CASE   EXPECTED RESULT
         ("[\w]",            Exception), # if ignoring all valid chars, error!
         ("[aeiou]",         Exception), # all maps have a vowel
-        ("[aiy]",           ["Honorgrounds", "Sequencer", "Frost", "MechDepot", "Redstorm"]), # all maps without an a, i or y
-        ("[cefgjk1xz]",       ["BloodBoil", "HitAndRun", "MistySwamp"]),
-        ("^[^p]",           ["PaladinoTerminal", "ProximaStation", "ProximaStation", "PredictBattleOutcome", "PrimevalWilds", "PrimevalWilds"]),
-        ("[aiot]",          ["Sequencer"]),
+        ("[diyt]",          ["CeruleanFall"]), # all maps without an a, i or y
+        ("[qt]",            ["Abiogenesis", "Blackpink", "CeruleanFall"]),
+        ("^[^d]",           ["DarknessSanctuary", "Dreamcatcher"]),
+        ("[t]",             ["Abiogenesis", "Blackpink", "CeruleanFall"]),
     ]
     def iterCases(cases, exclusion):
         for thisInput, thisExpect in cases:
