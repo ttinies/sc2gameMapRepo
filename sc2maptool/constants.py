@@ -209,6 +209,7 @@ mapNameTranslations = { # use byte representations to avoid requiring encodings
     b'\xff\xfeF\x00r\x00a\x00c\x00t\x00u\x00r\x00e\x00'                                     : FRACTURE,
     b'\xff\xfeH\x00i\x00g\x00h\x00S\x00p\x00i\x00r\x00i\x00t\x00e\x00d\x00P\x00l\x00a\x00t\x00f\x00o\x00r\x00m\x00'
                                                                                             : HIGH_SPIRIT_PLATFORM,
+    b'\xff\xfe0b\x0fa\xd8\x9a\x02fKN\x83X \x00-\x00 \x00)Y\xafhHr'                          : HIGH_SPIRIT_PLATFORM,
     b'\xff\xfel\x00a\x00b\x00y\x00r\x00i\x00n\x00t\x00h\x00'                                : LABYRINTH,
     b'\xff\xfeL\x00a\x00b\x00y\x00r\x00i\x00n\x00t\x00h\x00'                                : LABYRINTH,
     b'\xff\xfeL\x00a\x00n\x00d\x00i\x00n\x00g\x00Z\x00o\x00n\x00e\x00'                      : LANDING_ZONE,
