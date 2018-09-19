@@ -29,7 +29,7 @@ def test_index():
     idx1 = index.getIndex()
     idx2 = index.getIndex()
     newCache = index.IndexCache()
-    assert len(index.c.EXCLUDED_KEYS) == 6
+    assert len(index.c.INCLUDED_KEYS) == 9
     x = index.c.InvalidMapSelection()
     try:
         raise index.c.InvalidMapSelection("test")
