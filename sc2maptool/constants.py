@@ -7,7 +7,8 @@ import os
 MAPS_FOLDER     = os.path.join(os.path.dirname(os.path.abspath(__file__)), "maps")
 SC2_MAP_EXT     = "SC2Map"
 
-EXCLUDED_KEYS   = ["mapname", "exclude", "best", "details", "list", "path"]
+INCLUDED_KEYS   = ["ladder", "combat", "economy", "scenario", "misc", "test",
+                   "year", "season", "mode"]
 
 class InvalidMapSelection(Exception): pass
 
