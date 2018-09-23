@@ -17,12 +17,13 @@ DESCRIPTION = "Manage Starcraft2 (SC2) maps for use by developers creating bots,
 URL = "https://github.com/ttinies/sc2gameMapRepo"
 EMAIL = "help.fool@versentiedge.com"
 AUTHOR = "Versentiedge LLC"
-REQUIRES_PYTHON = ">2.6" # This is how other people do it https://github.com/requests/requests/blob/master/setup.py#L82
+REQUIRES_PYTHON = ">3.4" # This is how other people do it https://github.com/requests/requests/blob/master/setup.py#L82
 VERSION = None
 
 # What packages are required for this module to be executed?
 REQUIRED = [
-    "six"
+    "six",
+    "sc2common",
 ]
 
 # The rest you shouldn't have to touch too much :)
