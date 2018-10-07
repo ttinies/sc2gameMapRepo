@@ -18,7 +18,8 @@ def setup():
         maptoolDir = os.path.join(_cfg.installedApp.mapsDir, c.PATH_MAPTOOLDIR)
     except Exception as e: # allow installation on machines without Starcraft 2 installed (i.e. travis cloud testing machines)
         print("WARNING: %s"%e)
-        maptoolDir = c.MAPS_FOLDER # default to the package's map library
+        c.PATH_MAP_INSTALL = c.MAPS_FOLDER
+        return c.MAPS_FOLDER # default to the package's map library
     c.PATH_MAP_INSTALL = os.path.join(maptoolDir, __version__)
     if not os.path.isdir(c.PATH_MAP_INSTALL):
         if os.path.isdir(maptoolDir):  shutil.rmtree(maptoolDir) # clean up previous installations (avoid endlessly growing map repository)
