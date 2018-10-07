@@ -179,13 +179,3 @@ def display_test(testIn, testOut, testExpect):
     print("%s%s =>  %s == %s"%(testIn, " "*max(0, 30-len(str(testIn))), testOut, testExpect))
     assert testExpect == testOut
 
-
-test_main()
-test_index()
-test_simple()
-test_filter_map()
-test_match_attrs()
-test_filter_map_names()
-test_map_record()
-test_map_selection()
-test_names()
