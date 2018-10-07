@@ -24,6 +24,7 @@ VERSION = None
 REQUIRED = [
     "six",
     "sc2common",
+    "sc2gameLobby",
 ]
 
 # The rest you shouldn't have to touch too much :)
@@ -97,7 +98,7 @@ setup(
     url=URL,
     packages=find_packages(exclude=("tests",)),
     entry_points={
-         "console_scripts": ["sc2maptool=sc2maptool.cli:cli"],
+         "console_scripts": ["sc2maptool=sc2maptool.cli:main"],
     },
     install_requires=REQUIRED,
     include_package_data=True,
