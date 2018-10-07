@@ -20,7 +20,9 @@ def selectMap(name=None, excludeName=False, closestMatch=True, **tags):
         elif matches:       return matches
     except IndexError: pass # matches is empty still
     raise c.InvalidMapSelection("requested map '%s', but could not locate "\
-        "it within %s or its subdirectories."%(name, c.MAPS_FOLDER))
+        "it within %s or its subdirectories.  Submit the map to https://"\
+        "github.com/ttinies/sc2gameMapRepo/tree/master/sc2maptool/maps"%(
+            name, c.PATH_MAP_INSTALL))
 
 
 ################################################################################
