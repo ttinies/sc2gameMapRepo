@@ -1,6 +1,6 @@
 [![PyPI](https://img.shields.io/pypi/v/sc2maptool.svg)](https://pypi.org/project/sc2maptool/)
-[![Coverage Status](https://coveralls.io/repos/github/ttinies/sc2gameMapRepo/badge.svg?branch=master)](https://coveralls.io/github/ttinies/sc2gameMapRepo?branch=master)
 [![Build Status](https://travis-ci.org/ttinies/sc2gameMapRepo.svg?branch=master)](https://travis-ci.org/ttinies/sc2gameMapRepo)
+[![Coverage Status](https://coveralls.io/repos/github/ttinies/sc2gameMapRepo/badge.svg?branch=master)](https://coveralls.io/github/ttinies/sc2gameMapRepo?branch=master)
 ![Crates.io](https://img.shields.io/crates/l/rustc-serialize.svg)
 
 # Starcraft2 Maps with Simple, Universal Retrieval 
