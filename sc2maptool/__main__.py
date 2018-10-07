@@ -1,8 +1,9 @@
 
-from sc2maptool.cli import cli as main
+from sc2maptool.cli import main
 
 
 """allow command line or python -m execution"""
 
-main()
+if __name__ == "__main__":
+    main()
 
