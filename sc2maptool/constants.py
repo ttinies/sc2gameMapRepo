@@ -5,7 +5,10 @@ import os
 from sc2common.constants import SC2_MAP_EXT
 
 
-MAPS_FOLDER     = os.path.join(os.path.dirname(os.path.abspath(__file__)), "maps")
+PATH_HERE       = os.path.abspath(__file__)
+MAPS_FOLDER     = os.path.join(os.path.dirname(PATH_HERE), "maps")
+PATH_MAPTOOLDIR = "maptool"
+PATH_MAP_INSTALL= ""
 
 INCLUDED_KEYS   = ["ladder", "combat", "economy", "scenario", "misc", "test",
                    "year", "season", "mode"]
