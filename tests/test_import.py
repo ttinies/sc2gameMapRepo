@@ -1,4 +1,4 @@
-from sc2maptool import cli
+from sc2maptool import main
 from sc2maptool import functions as f
 from sc2maptool import index
 from sc2maptool import selectMap
@@ -6,22 +6,22 @@ from sc2maptool import standardizeMapName
 from sc2maptool.mapRecord import MapRecord
 
 
-def test_cli():
+def test_main():
     import sys
     sys.argv = ['', "--mapname=MechDepot", "--list", "--season=3"]
-    cli()
+    main()
     sys.argv = ['', "--mapname=MechDepot", "--details"]
-    cli()
+    main()
     sys.argv = ['', "--mapname=zx", "--details"]
-    cli()
+    main()
     sys.argv = ['', "--mapname=zx"]
-    cli()
+    main()
     sys.argv = ['', "--mapname=a", "--best"]
-    cli()
+    main()
     sys.argv = ['', "--mapname=zz", "--list"]
-    cli()
+    main()
     sys.argv = ['', "--mapname=a", "--best", "--path"]
-    cli()
+    main()
     from sc2maptool import __main__
 
 
@@ -179,3 +179,13 @@ def display_test(testIn, testOut, testExpect):
     print("%s%s =>  %s == %s"%(testIn, " "*max(0, 30-len(str(testIn))), testOut, testExpect))
     assert testExpect == testOut
 
+
+test_main()
+test_index()
+test_simple()
+test_filter_map()
+test_match_attrs()
+test_filter_map_names()
+test_map_record()
+test_map_selection()
+test_names()
