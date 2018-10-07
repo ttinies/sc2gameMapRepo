@@ -5,6 +5,7 @@ import os
 from sc2maptool.mapRecord import MapRecord
 from sc2maptool import constants as c
 
+
 ################################################################################
 class IndexCache(object):
     def __init__(self): pass
@@ -12,10 +13,13 @@ cache = IndexCache()
 
 
 ################################################################################
-def getIndex(folderPath=c.MAPS_FOLDER):
+def getIndex(folderPath=None):
     """parse the 'Maps' subfolder directory divining criteria for valid maps"""
     try:    return cache.structure
     except AttributeError: pass # if it doesn't exist, generate and cache the map file data
+    if folderPath == None:
+        from sc2maptool.startup import setup
+        folderPath = setup()
     ############################################################################
     def folderSearch(path, attrList=[]):
         ret = []
