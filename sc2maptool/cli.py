@@ -10,7 +10,6 @@ import argparse
 from sc2maptool.__version__ import __version__
 from sc2maptool import constants as c
 from sc2maptool.functions import selectMap, filterMapAttrs, filterMapNames
-from sc2maptool.index import getIndex
 
 
 ################################################################################
@@ -26,7 +25,7 @@ def optionsParser(passedParser=None):
         actionOpt = parser.add_argument_group('Main routine behavior indicating information to provide')
         actionOpt.add_argument("--list"     , default=None, action="store_true", help="Display all known maps by category.")
         actionOpt.add_argument("--details"  , default=None, action="store_true", help="show details of each mapname.")
-        actionOpt.add_argument("--path"     , default=None, action="store_true", help="provide the absolute path to the file")
+        actionOpt.add_argument("--path"     , default=None, action="store_true", help="provide the absolute path to the file.")
     functnOpt = parser.add_argument_group('Map Selection operation parameters')
     functnOpt.add_argument(    "--mapname"  , default=""                       , help="the (sub)name of the specific map to load.")
     functnOpt.add_argument(    "--exclude"  ,               action="store_true", help="exclude maps with names specified by --mapname.")
@@ -54,7 +53,7 @@ def getSelectionParams(options):
 
 
 ################################################################################
-def cli(): # mini/unit test
+def main(): # mini/unit test
     """
     PURPOSE: command-line interface for map information
     """
