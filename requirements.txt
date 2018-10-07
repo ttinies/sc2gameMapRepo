@@ -4,3 +4,4 @@ pytest-cov
 coveralls
 PyYAML
 sc2common
+sc2gameLobby
